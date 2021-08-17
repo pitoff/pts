@@ -11,7 +11,7 @@
 					<div class="login_form_inner">
 						<h3>Log in to enter</h3>
 							<div class="errMsg text-danger">{{session('message')}}</div>
-						<form class="row login_form" action="{{route('home.login')}}" method="POST" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="{{route('login')}}" method="POST" id="contactForm" novalidate="novalidate">
                             @csrf
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" name="email" value="{{old('email')}}" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">

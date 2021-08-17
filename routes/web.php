@@ -21,20 +21,17 @@ Route::get('/about', 'HomeController@about')->name('home.about');
 Route::get('/register', 'RegisterController@create')->name('home.register');
 Route::post('/register', 'RegisterController@store');
 
-Route::get('/login', 'RegisterController@login')->name('home.login');
-Route::post('/login', 'RegisterController@createLogin');
+Route::get('/login', 'RegisterController@login')->name('login');
+Route::post('/login', 'RegisterController@createLogin')->name('login');
 Route::get('/logout', 'RegisterController@logout')->name('logout');
-
-// Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::get('/shop/index', 'ShopController@index')->name('shop.index');
 
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
-    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/category', 'CategoryController@index')->name('admin.category');
-    Route::get('/category/create', 'CategoryController@create')->name('admin.createCategory');
-    Route::post('/category', 'CategoryController@store')->name('admin.storeCategory');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard')->middleware('auth');
+Route::get('/category', 'CategoryController@index')->name('admin.category')->middleware('auth');
+Route::get('/category/create', 'CategoryController@create')->name('admin.createCategory')->middleware('auth');
+Route::post('/category', 'CategoryController@store')->name('admin.storeCategory');
 
-    Route::get('/clothing', 'AdminController@index')->name('admin.clothing');
-    Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing');
-});
+Route::get('/clothing', 'AdminController@index')->name('admin.clothing')->middleware('auth');
+Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing')->middleware('auth');
+

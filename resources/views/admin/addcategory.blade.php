@@ -11,7 +11,7 @@
 					<div class="login_form_inner">
 						<h3>Add clothing category</h3>
 							<div class="successMsg text-success">{{session('message')}}</div>
-						<form class="row login_form" action="{{route('admin.createCategory')}}" method="POST" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="{{route('admin.storeCategory')}}" method="POST" id="contactForm" novalidate="novalidate">
                             @csrf
 							<div class="col-md-12 form-group">
 								<input type="category" class="form-control" name="category" value="{{old('category')}}" placeholder="Category" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Category'">

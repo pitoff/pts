@@ -96,7 +96,7 @@
 
 								<li class="nav-item submenu dropdown">
 									<a href="{{route('admin.category')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 		aria-expanded="false">Catgory</a>
+								 		aria-expanded="false">Category</a>
 									<ul class="dropdown-menu">
 										<li class="nav-item"><a class="nav-link" href="{{route('admin.createCategory')}}">Create</a></li>
 										<li class="nav-item"><a class="nav-link" href="{{route('admin.category')}}">All Categories</a></li>

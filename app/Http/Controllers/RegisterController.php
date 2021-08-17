@@ -76,7 +76,7 @@ class RegisterController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect(route('home.login'));
+        return redirect(route('login'));
 
     }
 }
