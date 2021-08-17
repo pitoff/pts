@@ -41,7 +41,7 @@ class RegisterController extends Controller
            }
         }
 
-        return redirect(route('home.login'))->with("Invalid params were provided");
+        return redirect(route('home.login'))->with('message', "Your login details are incorrect");
     }
 
     public function store(Request $request)
@@ -58,7 +58,7 @@ class RegisterController extends Controller
         if(!$create){
             return "Error 404";
         }
-        return redirect(route('home.login'))->with('reg ok!');
+        return redirect(route('home.login'))->with('message', 'Your registration was successful');
     }
 
     protected function createData(array $data)

@@ -205,6 +205,7 @@
 	<script src="/js/jquery.sticky.js"></script>
 	<script src="/js/nouislider.min.js"></script>
 	<script src="/js/countdown.js"></script>
+	<script src="/js/pts.js"></script>
 	<script src="/js/jquery.magnific-popup.min.js"></script>
 	<script src="/js/owl.carousel.min.js"></script>
 	<!--gmaps Js-->
