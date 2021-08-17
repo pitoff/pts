@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,8 +14,10 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function addCloth()
+    public function create()
     {
         return view('admin.addcloth');
     }
+
+    
 }

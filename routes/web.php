@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\CategoryController;
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
@@ -29,4 +31,10 @@ Route::get('/shop/index', 'ShopController@index')->name('shop.index');
 
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/category', 'CategoryController@index')->name('admin.category');
+    Route::get('/category/create', 'CategoryController@create')->name('admin.createCategory');
+    Route::post('/category', 'CategoryController@store')->name('admin.storeCategory');
+
+    Route::get('/clothing', 'AdminController@index')->name('admin.clothing');
+    Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing');
 });

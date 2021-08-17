@@ -85,10 +85,26 @@
 						@else
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item"><a class="nav-link" href="">Clothing</a></li>
-								<li class="nav-item"><a class="nav-link" href="">Category</a></li>
+								<li class="nav-item submenu dropdown">
+									<a href="{{route('admin.dashboard')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 		aria-expanded="false">Clothing</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="{{route('admin.clothing')}}">All clothing</a></li>
+										<li class="nav-item"><a class="nav-link" href="{{route('admin.addclothing')}}">Add clothing</a></li>
+									</ul>
+								</li>
+
+								<li class="nav-item submenu dropdown">
+									<a href="{{route('admin.category')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 		aria-expanded="false">Catgory</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="{{route('admin.createCategory')}}">Create</a></li>
+										<li class="nav-item"><a class="nav-link" href="{{route('admin.category')}}">All Categories</a></li>
+									</ul>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="{{route('logout')}}">LogOut</a></li>
 							</ul>
+
 							<ul class="nav navbar-nav navbar-right">
 								<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
 								<li class="nav-item">
