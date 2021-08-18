@@ -9,7 +9,7 @@
 					<h1>clothing categories</h1>
 					<nav class="d-flex align-items-center">
 						<a href="{{route('admin.dashboard')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#">Categories<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Categories</a>
 					</nav>
 				</div>
 			</div>
@@ -17,11 +17,12 @@
 	</section>
 
     <div class="container" style="margin-top: 100px;">
+	<div class="successMsg text-success"><em>{{session('message')}}</em></div>
 		<div class="row">
+			
 			<div class="col-xl-8 col-lg-12 col-md-12">
 				<div class="sidebar-categories">
 					<div class="head">Browse Categories</div>
-
                     <div class="table-responsive text-center">
 
                         <table class="table table-bordered">
@@ -40,7 +41,7 @@
                                     <td>{{$key + 1}}</td>
                                     <td>{{$category->category}}</td>
                                     <td>(53)</td>
-                                    <td><button class="pull-right genric-btn info"><span class="ti-eye"></span></button></td>
+                                    <td><a href="{{route('admin.showCategory', $category->id)}}"><button class="pull-right genric-btn info"><span class="ti-eye"></span></button></a></td>
                                     <td><a href="{{route('admin.editCategory', $category->id)}}"><button class="pull-right genric-btn primary">Edit</button></a></td>
                                     <td>
                                         <form action="{{route('admin.delCategory', $category->id)}}" method="POST">

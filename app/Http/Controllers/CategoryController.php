@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         if(Auth::user()->isAdmin()){
             $categories = Category::all();
-            return view ('admin.category', [
+            return view ('admin.category.category', [
                 'categories' => $categories
             ]);
         }else{
@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         if(Auth::user()->isAdmin()){
-            return view('admin.addcategory');
+            return view('admin.category.add');
         }else{
             abort('404');
         }
@@ -43,17 +43,23 @@ class CategoryController extends Controller
         ]));
 
         if($storeCat){
-            return redirect(route('admin.createCategory'))->with('message', 'Clothing category has been created');
+            return redirect(route('admin.category'))->with('message', 'Clothing category has been created');
         }else{
             abort('404');
         }
    
     }
 
+    public function show(Category $category)
+    {
+        return view('admin.category.show', [
+            'category' => $category
+        ]);
+    }
 
     public function edit(Category $category)
     {
-        return view('admin.editcategory', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     public function update(Category $category)

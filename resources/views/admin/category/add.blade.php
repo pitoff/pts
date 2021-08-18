@@ -10,7 +10,7 @@
 				<div class="col-lg-12">
 					<div class="login_form_inner">
 						<h3>Add clothing category</h3>
-							<div class="successMsg text-success">{{session('message')}}</div>
+
 						<form class="row login_form" action="{{route('admin.storeCategory')}}" method="POST" id="contactForm" novalidate="novalidate">
                             @csrf
 							<div class="col-md-12 form-group">
@@ -26,6 +26,7 @@
 								<button type="submit" value="submit" class="primary-btn">Create</button>
 							</div>
 						</form>
+						
 					</div>
 				</div>
 			</div>

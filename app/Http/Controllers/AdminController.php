@@ -11,12 +11,12 @@ class AdminController extends Controller
     
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.shop.dashboard');
     }
 
     public function create()
     {
-        return view('admin.addcloth');
+        return view('admin.shop.addcloth');
     }
 
     
