@@ -50,13 +50,29 @@ class CategoryController extends Controller
    
     }
 
-    public function edit()
-    {
 
+    public function edit(Category $category)
+    {
+        return view('admin.editcategory', compact('category'));
     }
 
-    public function update()
+    public function update(Category $category)
     {
+        request()->validate([
+            'category' => 'required'
+        ]);
 
+        $category->category = request('category');
+
+        $category->update();
+        return redirect(route('admin.category'));
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        
+        return redirect(route('admin.category'));
+       
     }
 }

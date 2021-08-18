@@ -31,6 +31,10 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard')->middlewa
 Route::get('/category', 'CategoryController@index')->name('admin.category')->middleware('auth');
 Route::get('/category/create', 'CategoryController@create')->name('admin.createCategory')->middleware('auth');
 Route::post('/category', 'CategoryController@store')->name('admin.storeCategory');
+// Route::get('/category/{category}', 'CategoryController@show')->name('admin.showCategory');
+Route::get('/category/{category}/edit', 'CategoryController@edit')->name('admin.editCategory');
+Route::put('/category/{category}', 'CategoryController@update')->name('admin.updateCategory');
+Route::delete('/category/{category}', 'CategoryController@destroy')->name('admin.delCategory');
 
 Route::get('/clothing', 'AdminController@index')->name('admin.clothing')->middleware('auth');
 Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing')->middleware('auth');

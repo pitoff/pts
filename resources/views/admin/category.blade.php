@@ -30,7 +30,7 @@
                                     <td>#</td>
                                     <td>Category</td>
                                     <td>Clothings</td>
-                                    <td colspan="2">Actions</td>
+                                    <td colspan="3">Actions</td>
                                 </tr>
                             </thead>
 
@@ -40,8 +40,15 @@
                                     <td>{{$key + 1}}</td>
                                     <td>{{$category->category}}</td>
                                     <td>(53)</td>
-                                    <td><button class="pull-right genric-btn danger">Edit</button></td>
-                                    <td><button class="pull-right genric-btn danger">Remove</button></td>
+                                    <td><button class="pull-right genric-btn info"><span class="ti-eye"></span></button></td>
+                                    <td><a href="{{route('admin.editCategory', $category->id)}}"><button class="pull-right genric-btn primary">Edit</button></a></td>
+                                    <td>
+                                        <form action="{{route('admin.delCategory', $category->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="pull-right genric-btn danger">Remove</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
