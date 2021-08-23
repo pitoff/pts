@@ -10,11 +10,11 @@
 				<div class="col-lg-12">
 					<div class="login_form_inner">
 						<h3>Add New clothing</h3>
-						<form class="row login_form" action="" method="POST" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="{{route('admin.storeClothing')}}" method="POST" id="contactForm" novalidate="novalidate">
                             @csrf
                             <div class="col-md-12 form-group">
-								<input type="file" class="form-control" name="cloth" value="{{old('cloth')}}" placeholder="Cloth" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cloth'"></br>
-                                @error('cloth')
+								<input type="file" class="form-control" name="image" placeholder="Cloth" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cloth'"></br>
+                                @error('image')
                                     <span class="invalid text-danger">
                                        <em>{{ $message }}</em>*
                                     </span>
@@ -50,6 +50,29 @@
 
                                 @enderror
                             </div>
+
+                            <div class="col-md-12 mb-3">
+								<label for="category">Select all cloth category</label></br>
+                                    @foreach($categories as $category)
+                                        <input type="checkbox" name="categories[]" value="{{ $category->id }}"> {{$category->category}} </br>
+                                    @endforeach
+                               
+                                @error('categories')
+                                    <span class="invalid text-danger">
+                                       <em>{{ $message }}</em>*
+                                    </span>
+
+                                @enderror
+                            </div>
+
+                            <!-- <div class="col-md-12 form-group">
+								<div class="creat_account">
+                                    @foreach($categories as $category)
+									<input type="checkbox" id="f-option2" name="categories[]" value="{{$category->id}}">
+									<label for="f-option2">{{$category->category}}</label>,
+                                    @endforeach
+								</div>
+							</div> -->
                 
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Add cloth</button>

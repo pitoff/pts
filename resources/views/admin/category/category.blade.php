@@ -17,9 +17,7 @@
 	</section>
 
     <div class="container" style="margin-top: 100px;">
-	<div class="successMsg text-success"><em>{{session('message')}}</em></div>
 		<div class="row">
-			
 			<div class="col-xl-8 col-lg-12 col-md-12">
 				<div class="sidebar-categories">
 					<div class="head">Browse Categories</div>

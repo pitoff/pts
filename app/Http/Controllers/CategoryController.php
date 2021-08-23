@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Cloth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,7 @@ class CategoryController extends Controller
         ]));
 
         if($storeCat){
-            return redirect(route('admin.category'))->with('message', 'Clothing category has been created');
+            return redirect(route('admin.createCategory'))->with('message', 'Clothing category has been created');
         }else{
             abort('404');
         }

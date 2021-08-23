@@ -10,6 +10,7 @@
 				<div class="col-lg-12">
 					<div class="login_form_inner">
 						<h3>Log in to enter</h3>
+							<div class="successMsg text-success">{{session('successmessage')}}</div>
 							<div class="errMsg text-danger">{{session('message')}}</div>
 						<form class="row login_form" action="{{route('login')}}" method="POST" id="contactForm" novalidate="novalidate">
                             @csrf

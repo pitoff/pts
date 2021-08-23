@@ -18,6 +18,16 @@ class Categories extends Migration
             $table->string('category')->unique();
             $table->timestamps();
         });
+
+        Schema::create('category_cloth', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('cloth_id');
+            $table->unsignedBigInteger('category_id');
+            $table->timestamps();
+
+            $table->unique(['cloth_id', 'category_id']);
+        });
+
     }
 
     /**

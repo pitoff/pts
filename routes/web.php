@@ -38,4 +38,5 @@ Route::delete('/category/{category}', 'CategoryController@destroy')->name('admin
 
 Route::get('/clothing', 'AdminController@index')->name('admin.clothing')->middleware('auth');
 Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing')->middleware('auth');
+Route::post('/clothing', 'AdminController@store')->name('admin.storeClothing');
 

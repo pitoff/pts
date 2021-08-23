@@ -41,7 +41,7 @@ class RegisterController extends Controller
            }
         }
 
-        return redirect(route('home.login'))->with('message', "Your login details are incorrect");
+        return redirect(route('login'))->with('message', "Your login details are incorrect");
     }
 
     public function store(Request $request)
@@ -56,9 +56,9 @@ class RegisterController extends Controller
         $create = $this->createData($data);
 
         if(!$create){
-            return "Error 404";
+            abort('404');
         }
-        return redirect(route('home.login'))->with('message', 'Your registration was successful');
+        return redirect(route('login'))->with('successmessage', 'Your registration was successful');
     }
 
     protected function createData(array $data)
