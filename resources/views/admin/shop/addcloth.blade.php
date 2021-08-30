@@ -54,7 +54,7 @@
                             <div class="col-md-12 mb-3">
 								<label for="category">Select all cloth category</label></br>
                                     @foreach($categories as $category)
-                                        <input type="checkbox" name="categories[]" value="{{ $category->id }}"> {{$category->category}} </br>
+                                        <input type="radio" name="categories" value="{{ $category->id }}"> {{$category->category}} </br>
                                     @endforeach
                                
                                 @error('categories')

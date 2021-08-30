@@ -51,10 +51,11 @@ class CategoryController extends Controller
    
     }
 
-    public function show(Category $category)
+    public function show(Category $category, Cloth $cloth)
     {
         return view('admin.category.show', [
-            'category' => $category
+            'category' => $category,
+            'cloth' => Cloth::with('category', 'category.category_id')->get()
         ]);
     }
 

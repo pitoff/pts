@@ -21,13 +21,13 @@ class Categories extends Migration
 
         Schema::create('category_cloth', function(Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('cloth_id');
             $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('cloth_id');
             $table->timestamps();
 
-            $table->unique(['cloth_id', 'category_id']);
+            $table->unique(['category_id', 'cloth_id']);
         });
-
+        
     }
 
     /**

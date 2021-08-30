@@ -27,10 +27,13 @@
 							<div class="single-product">
 								<img class="img-fluid" src="/img/product/p1.jpg" alt="">
 								<div class="product-details">
-									@foreach($category->cloth as $cloth)
+									@foreach($cloth as $cloth)
+										@if($category->id === $cloth->category_id)
+										
 										
 											<p>{{$cloth->name}}</p>
 										
+											@endif
 									@endforeach
 									<div class="price">
 										<h6>$150.00</h6>

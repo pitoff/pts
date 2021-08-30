@@ -28,7 +28,7 @@ class AdminController extends Controller
             'image' => 'required',
             'name' => 'required',
             'description' => 'required',
-            // 'categories' => 'required',
+            'categories' => 'required',
             'amount' => 'required'
         ]);
 
@@ -38,10 +38,10 @@ class AdminController extends Controller
         $cloth->description = request('description');
         $cloth->name = request('name');
         $cloth->price = request('amount');
-        // $cloth->categories = request('categories');
+        $cloth->category_id = request('categories');
         $cloth->save();
 
-        $cloth->category()->attach(request('categories'));
+        // $cloth->category()->attach(request('categories'));
         return redirect(route('admin.clothing'));
     }
 

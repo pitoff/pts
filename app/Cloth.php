@@ -8,10 +8,6 @@ class Cloth extends Model
 {
     protected $table = 'clothes';
 
-    // protected $casts = [
-    //    'categories' => 'array' 
-    // ];
-
     protected $fillable = [
         'name', 'description', 'price', 'image'
     ];
