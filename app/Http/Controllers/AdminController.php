@@ -12,7 +12,9 @@ class AdminController extends Controller
     
     public function index()
     {
-        return view('admin.shop.dashboard');
+        return view('admin.shop.dashboard',[
+            'clothes' => Cloth::orderBy('created_at', 'desc')->get()
+        ]);
     }
 
     public function create()
@@ -22,32 +24,34 @@ class AdminController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
         request()->validate([
-            'image' => 'required',
+            'image' => 'required|file|image|mimes:jpeg,jpg,png',
             'name' => 'required',
             'description' => 'required',
             'categories' => 'required',
             'amount' => 'required'
         ]);
 
+        $imgFile = $request->file('image');
+        $filename = time() .'.'.$imgFile->getClientOriginalName();
+
         $cloth = new Cloth();
         
-        $cloth->image = request('image');
+        $cloth->image = $filename;
         $cloth->description = request('description');
         $cloth->name = request('name');
         $cloth->price = request('amount');
         $cloth->category_id = request('categories');
+
+       
+        $imgFile->move(public_path('\images'), $filename);
+
         $cloth->save();
 
         // $cloth->category()->attach(request('categories'));
         return redirect(route('admin.clothing'));
-    }
-
-    public function moveImage()
-    {
-
     }
 
     
