@@ -16,7 +16,7 @@ class Clothes extends Migration
         Schema::create('clothes', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('name');
             $table->string('description');
             $table->integer('price');
