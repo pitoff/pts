@@ -39,4 +39,8 @@ Route::delete('/category/{category}', 'CategoryController@destroy')->name('admin
 Route::get('/clothing', 'AdminController@index')->name('admin.clothing')->middleware('auth');
 Route::get('/clothing/create', 'AdminController@create')->name('admin.addclothing')->middleware('auth');
 Route::post('/clothing', 'AdminController@store')->name('admin.storeClothing');
+Route::get('/clothing/{cloth}', 'AdminController@show')->name('admin.showClothing');
+Route::get('/clothing/{cloth}/edit', 'AdminController@edit')->name('admin.editClothing')->middleware('auth');
+Route::put('/clothing/{cloth}', 'AdminController@update')->name('admin.updateClothing');
+Route::delete('/clothing/{cloth}', 'AdminController@removeCloth')->name('admin.removeClothing');
 

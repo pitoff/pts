@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Cloth;
+use Categories;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -54,5 +55,26 @@ class AdminController extends Controller
         return redirect(route('admin.clothing'));
     }
 
+    public function show(Cloth $cloth)
+    {
+        return view('admin.shop.showcloth', [
+            'cloth' => $cloth,
+            // 'clothCat' => $category
+        ]);
+    }
+
+    public function edit($id)
+    {
+        return view('admin.shop.editcloth', [
+            'categories' => Category::all(),
+            'cloth' => Cloth::findorfail($id)
+        ]);
+    }
+
+    public function removeCloth(Cloth $cloth)
+    {
+        $cloth->delete();
+        return redirect(route('admin.dashboard'))->with('deleted', 'Cloth was successfully removed');
+    }
     
 }

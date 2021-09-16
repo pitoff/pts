@@ -36,22 +36,24 @@
 									</div>
 									<div class="prd-bottom">
 
-										<a href="" class="social-info">
-											<span class="ti-bag"></span>
-											<p class="hover-text">add to bag</p>
+										<a href="{{ route('admin.editClothing', $cloth->id) }}" class="social-info">
+											<span class="ti-arrow-up"></span>
+											<p class="hover-text">Update</p>
 										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-heart"></span>
-											<p class="hover-text">Wishlist</p>
+										<a href="{{route('admin.showClothing', $cloth->id)}}" class="social-info">
+											<span class="lnr lnr-eye"></span>
+											<p class="hover-text">View</p>
 										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-sync"></span>
-											<p class="hover-text">compare</p>
-										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-move"></span>
-											<p class="hover-text">view more</p>
-										</a>
+
+										<form action="{{route('admin.removeClothing', $cloth->id)}}" method="POST">
+											@csrf
+											@method('DELETE')
+											<button class="btn">
+												<span class="lnr lnr-trash text-danger"></span>
+												<!-- <p class="hover-text">Remove</p> -->
+											</button>
+										</form>
+										
 									</div>
 								</div>
 							</div>

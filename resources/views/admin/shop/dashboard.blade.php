@@ -50,8 +50,8 @@
 								</div>
 								<div class="prd-bottom">
 
-									<a href="" class="social-info">
-										<span class="ti-bag"></span>
+									<a href="{{ route('admin.editClothing', $cloth->id) }}" class="social-info">
+										<span class="ti-arrow-up"></span>
 										<p class="hover-text">add to bag</p>
 									</a>
 									<a href="" class="social-info">
